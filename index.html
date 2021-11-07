@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Clock</title>
+</head>
+<body>
+<div class="title">Hassan's Clock</div>
+<br/>
+    <div class="container">
+        <div class="clock">
+        <div class="c2">
+            <div class="hour hand"></div>
+            <div class="min hand"></div>
+            <div class="sec hand"></div>
+        </div>
+        </div>
+    </div>
+    <script>
+     const sechand = document.querySelector(`.sec`);
+     const minhand = document.querySelector(`.min`);
+     const hourhand = document.querySelector(`.hour`);
+
+    setInterval(() => {
+    const now = new Date();
+
+    const secs = now.getSeconds();
+    const secsndeg = ( (secs/60) * 360) + 90;
+    sechand.style.transform = `rotate(${secsndeg}deg)` ;
+    console.log(secsndeg);
+
+    const hours = now.getHours();
+    const hoursndeg = ( (hours/12) * 360) + 90;
+    hourhand.style.transform = `rotate(${hoursndeg}deg)` ;
+
+    const mins = now.getMinutes();
+    const minsndeg = ( (mins/60) * 360) + 90;
+    minhand.style.transform = `rotate(${minsndeg}deg)` ;
+ 
+    console.log(hours,hoursndeg)
+
+    }, 1000);
+
+    </script>
+
+</body>
+</html>
